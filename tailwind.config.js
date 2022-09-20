@@ -1,7 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx,svg}"],
   theme: {
+    screens: {
+      md: "978px",
+    },
     extend: {
       colors: {
         StrongCyan: "hsl(172, 67%, 45%)",
