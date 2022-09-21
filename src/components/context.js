@@ -1,10 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [totalTip, setTotalTip] = useState(0.0);
   const [perPersonTip, setPerPersonTip] = useState(0.0);
+  const formikRef = useRef();
 
   const evaluateTip = (bill, tip, person) => {
     setTotalTip(((bill * tip) / 100).toFixed(2));
@@ -14,11 +15,12 @@ const AppProvider = ({ children }) => {
   const handleReset = () => {
     setTotalTip(0.0);
     setPerPersonTip(0.0);
+    formikRef.current?.resetForm();
   };
 
   return (
     <AppContext.Provider
-      value={{ totalTip, perPersonTip, evaluateTip, handleReset }}
+      value={{ totalTip, perPersonTip, evaluateTip, handleReset, formikRef }}
     >
       {children}
     </AppContext.Provider>

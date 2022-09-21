@@ -5,11 +5,12 @@ import dollarsvg from "../images/icon-dollar.svg";
 import { useGlobalContext } from "./context";
 
 function InputForm() {
-  const { evaluateTip } = useGlobalContext();
+  const { evaluateTip, formikRef } = useGlobalContext();
 
   return (
     <div className="md:h-full md:w-1/2">
       <Formik
+        innerRef={formikRef}
         initialValues={{ bill: "", tip: "", people: "" }}
         validate={(values) => {
           const errors = {};
@@ -71,17 +72,17 @@ function InputForm() {
                 <label
                   htmlFor="5"
                   className="inline-flex items-center justify-center text-xl font-bold bg-VeryDarkCyan text-White rounded-md
-                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer"
+                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer group-checked:bg-StrongCyan"
                 >
+                  <Field
+                    type="radio"
+                    name="tip"
+                    id="5"
+                    value="5"
+                    className="hidden"
+                  />
                   5%
                 </label>
-                <Field
-                  type="radio"
-                  name="tip"
-                  id="5"
-                  value="5"
-                  className="hidden"
-                />
                 <label
                   htmlFor="10"
                   className="inline-flex items-center justify-center text-xl font-bold bg-VeryDarkCyan text-White rounded-md
@@ -146,7 +147,6 @@ function InputForm() {
                   className="p-2 text-2xl font-bold text-VeryDarkCyan bg-VeryLightGrayishCyan text-center rounded-md focus:outline-2 outline-StrongCyan cursor-pointer"
                   onChange={(e) => {
                     handleChange(e);
-                    console.log(e.target.value);
                     setTimeout(() => handleSubmit(), 500);
                   }}
                 />
@@ -181,12 +181,6 @@ function InputForm() {
                 />
               </div>
             </div>
-            {/* <button
-              type="submit"
-              className="py-2 text-2xl rounded-md text-StrongCyan bg-VeryDarkCyan"
-            >
-              submit
-            </button> */}
           </form>
         )}
       </Formik>
