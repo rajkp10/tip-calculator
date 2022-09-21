@@ -11,8 +11,10 @@ function Detail({ header, subHeader, amount }) {
         </span>
       </div>
       <div className="flex justify-center items-baseline space-x-1">
-        <img src={Dollar} alt="" className="h-1/2 md:h-3/4" />
-        <h1 className="text-3xl md:text-5xl text-StrongCyan">{amount}</h1>
+        <img src={Dollar} alt="" className="h-1/2 md:h-3/5" />
+        <h1 className="text-3xl md:text-4xl font-bold text-StrongCyan">
+          {amount}
+        </h1>
       </div>
     </div>
   );
