@@ -17,6 +17,9 @@ function InputForm() {
           if (!values.bill || values.bill === "0") {
             errors.bill = "Can't be zero";
           }
+          if (!values.tip) {
+            errors.tip = "Can't be zero";
+          }
           if (!values.people || values.people === "0") {
             errors.people = "Can't be zero";
           }
@@ -52,11 +55,14 @@ function InputForm() {
                   className="absolute h-1/2 top-3 left-3"
                 />
                 <Field
-                  type="text"
+                  type="number"
                   name="bill"
                   id="bill"
                   placeholder="0"
-                  className="w-full px-4 py-2 text-VeryDarkCyan bg-VeryLightGrayishCyan text-right rounded-md focus:outline-2 outline-StrongCyan cursor-pointer"
+                  className={`w-full px-4 py-2 font-bold text-VeryDarkCyan bg-VeryLightGrayishCyan text-right rounded-md focus:outline-2 outline-StrongCyan cursor-pointer ${
+                    errors.bill ? "border-2 border-red-500" : "border-none"
+                  }`}
+                  step="0.01"
                   onChange={(e) => {
                     handleChange(e);
                     setTimeout(() => handleSubmit(), 500);
@@ -69,81 +75,107 @@ function InputForm() {
                 Select Tip %
               </span>
               <div className="grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2 gap-4">
-                <label
-                  htmlFor="5"
-                  className="inline-flex items-center justify-center text-xl font-bold bg-VeryDarkCyan text-White rounded-md
-                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer group-checked:bg-StrongCyan"
-                >
+                <div>
                   <Field
                     type="radio"
                     name="tip"
                     id="5"
                     value="5"
-                    className="hidden"
+                    className="hidden peer"
                   />
-                  5%
-                </label>
-                <label
-                  htmlFor="10"
-                  className="inline-flex items-center justify-center text-xl font-bold bg-VeryDarkCyan text-White rounded-md
-                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer"
-                >
-                  10%
-                </label>
+                  <label
+                    htmlFor="5"
+                    className="inline-flex items-center justify-center h-full w-full text-xl font-bold bg-VeryDarkCyan text-White rounded-md
+                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer group-checked:bg-StrongCyan peer-checked:bg-StrongCyan peer-checked:text-VeryDarkCyan"
+                    onClick={() => {
+                      setTimeout(() => handleSubmit(), 500);
+                    }}
+                  >
+                    5%
+                  </label>
+                </div>
+                <div>
+                  <Field
+                    type="radio"
+                    name="tip"
+                    id="10"
+                    value="10"
+                    className="hidden peer"
+                  />
+                  <label
+                    htmlFor="10"
+                    className="inline-flex items-center justify-center h-full w-full text-xl font-bold bg-VeryDarkCyan text-White rounded-md
+                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer group-checked:bg-StrongCyan peer-checked:bg-StrongCyan peer-checked:text-VeryDarkCyan"
+                    onClick={() => {
+                      setTimeout(() => handleSubmit(), 500);
+                    }}
+                  >
+                    10%
+                  </label>
+                </div>
+                <div>
+                  <Field
+                    type="radio"
+                    name="tip"
+                    id="15"
+                    value="15"
+                    className="hidden peer"
+                  />
+                  <label
+                    htmlFor="15"
+                    className="inline-flex items-center justify-center h-full w-full text-xl font-bold bg-VeryDarkCyan text-White rounded-md
+                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer group-checked:bg-StrongCyan peer-checked:bg-StrongCyan peer-checked:text-VeryDarkCyan"
+                    onClick={() => {
+                      setTimeout(() => handleSubmit(), 500);
+                    }}
+                  >
+                    15%
+                  </label>
+                </div>
+                <div>
+                  <Field
+                    type="radio"
+                    name="tip"
+                    id="25"
+                    value="25"
+                    className="hidden peer"
+                  />
+                  <label
+                    htmlFor="25"
+                    className="inline-flex items-center justify-center h-full w-full text-xl font-bold bg-VeryDarkCyan text-White rounded-md
+                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer group-checked:bg-StrongCyan peer-checked:bg-StrongCyan peer-checked:text-VeryDarkCyan"
+                    onClick={() => {
+                      setTimeout(() => handleSubmit(), 500);
+                    }}
+                  >
+                    25%
+                  </label>
+                </div>
+                <div>
+                  <Field
+                    type="radio"
+                    name="tip"
+                    id="50"
+                    value="50"
+                    className="hidden peer"
+                  />
+                  <label
+                    htmlFor="50"
+                    className="inline-flex items-center justify-center h-full w-full text-xl font-bold bg-VeryDarkCyan text-White rounded-md
+                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer group-checked:bg-StrongCyan peer-checked:bg-StrongCyan peer-checked:text-VeryDarkCyan"
+                    onClick={() => {
+                      setTimeout(() => handleSubmit(), 500);
+                    }}
+                  >
+                    50%
+                  </label>
+                </div>
                 <Field
-                  type="radio"
-                  name="tip"
-                  id="10"
-                  value="10"
-                  className="hidden"
-                />
-                <label
-                  htmlFor="15"
-                  className="inline-flex items-center justify-center text-xl font-bold bg-VeryDarkCyan text-White rounded-md
-                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer"
-                >
-                  15%
-                </label>
-                <Field
-                  type="radio"
-                  name="tip"
-                  id="15"
-                  value="15"
-                  className="hidden"
-                />
-                <label
-                  htmlFor="25"
-                  className="inline-flex items-center justify-center text-xl font-bold bg-VeryDarkCyan text-White rounded-md
-                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer"
-                >
-                  25%
-                </label>
-                <Field
-                  type="radio"
-                  name="tip"
-                  id="25"
-                  value="25"
-                  className="hidden"
-                />
-                <label
-                  htmlFor="50"
-                  className="inline-flex items-center justify-center text-xl font-bold bg-VeryDarkCyan text-White rounded-md
-                  hover:text-VeryDarkCyan hover:bg-LightGrayishCyan hover:cursor-pointer"
-                >
-                  50%
-                </label>
-                <Field
-                  type="radio"
-                  name="tip"
-                  id="50"
-                  value="50"
-                  className="hidden"
-                />
-                <Field
-                  type="text"
+                  type="number"
                   name="tip"
                   id="custom"
                   placeholder="Custom"
+                  step="0.01"
                   className="p-2 text-2xl font-bold text-VeryDarkCyan bg-VeryLightGrayishCyan text-center rounded-md focus:outline-2 outline-StrongCyan cursor-pointer"
                   onChange={(e) => {
                     handleChange(e);
@@ -169,11 +201,14 @@ function InputForm() {
                   className="absolute h-1/2 top-3 left-3"
                 />
                 <Field
-                  type="text"
+                  type="number"
                   name="people"
                   id="people"
                   placeholder="0"
-                  className="w-full px-4 py-2 text-VeryDarkCyan bg-VeryLightGrayishCyan focus:outline-2 outline-StrongCyan text-right rounded-md cursor-pointer"
+                  step="1"
+                  className={`w-full px-4 py-2 font-bold text-VeryDarkCyan bg-VeryLightGrayishCyan focus:outline-2 outline-StrongCyan text-right rounded-md cursor-pointer ${
+                    errors.people ? "border-2 border-red-500" : "border-none"
+                  }`}
                   onChange={(e) => {
                     handleChange(e);
                     setTimeout(() => handleSubmit(), 500);
