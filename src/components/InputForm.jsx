@@ -8,7 +8,7 @@ function InputForm() {
   const { evaluateTip, formikRef } = useGlobalContext();
 
   return (
-    <div className="md:h-full md:w-1/2">
+    <section className="md:h-full md:w-1/2">
       <Formik
         innerRef={formikRef}
         initialValues={{ bill: "", tip: "", people: "" }}
@@ -219,7 +219,7 @@ function InputForm() {
           </form>
         )}
       </Formik>
-    </div>
+    </section>
   );
 }
 

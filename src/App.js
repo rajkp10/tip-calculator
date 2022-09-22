@@ -3,7 +3,7 @@ import Card from "./components/Card";
 
 function App() {
   return (
-    <div className="min-h-screen w-full flex flex-col justify-end md:justify-center items-center bg-LightGrayishCyan">
+    <main className="min-h-screen w-full flex flex-col justify-end md:justify-center items-center bg-LightGrayishCyan">
       <h2 className="absolute top-20 left-50 text-3xl uppercase font-bold text-VeryDarkCyan tracking-[.5rem]">
         spli
       </h2>
@@ -11,7 +11,7 @@ function App() {
         tter
       </h2>
       <Card />
-    </div>
+    </main>
   );
 }
 

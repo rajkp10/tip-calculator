@@ -6,10 +6,10 @@ function Summary() {
   const { totalTip, perPersonTip } = useGlobalContext();
 
   return (
-    <div className="flex flex-col space-y-4 md:space-y-8">
+    <section className="flex flex-col space-y-4 md:space-y-8">
       <Detail header="Tip Amount" subHeader="person" amount={totalTip} />
       <Detail header="Total" subHeader="person" amount={perPersonTip} />
-    </div>
+    </section>
   );
 }
 
