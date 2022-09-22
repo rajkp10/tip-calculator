@@ -1,3 +1,19 @@
+## Live Demo
+
+https://tip-calculator-rajkp10.netlify.app/
+
+## About Project
+
+Tip Calculator Task from Frontend Mentor Website
+
+## Tools
+
+ReactJS, Tailwind CSS and Formik
+
+## Preview
+
+![tip-calculator](https://user-images.githubusercontent.com/96880670/191607072-da2a655c-faf8-48e0-bbdc-64c86ae29fc7.jpg)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
